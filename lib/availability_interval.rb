@@ -1,9 +1,10 @@
 require 'time'
-require 'pry'
 
 class AvailabilityInterval
 
-  DEFAULT_AVAILABILITIES = [%w(8:30 11:30), %w(1:00 5:00)]
+  DEFAULT_AVAILABILITIES = [%w(8:30 11:30), %w(1:00 4:30)]
+
+  attr_accessor :start_time, :end_time
 
   def initialize (interval)
     @interval   = interval
