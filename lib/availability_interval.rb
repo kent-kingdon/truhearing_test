@@ -8,10 +8,10 @@ class AvailabilityInterval
 
   def initialize (interval)
     @interval   = interval
-    @start_time = Time.parse add_am_pm interval[0]
-    @end_time   = Time.parse add_am_pm interval[1]
-    @min_limit  = add_am_pm DEFAULT_AVAILABILITIES[0][0]
-    @max_limit  = add_am_pm DEFAULT_AVAILABILITIES[1][1]
+    @start_time = Time.parse AvailabilityInterval.add_am_pm interval[0]
+    @end_time   = Time.parse AvailabilityInterval.add_am_pm interval[1]
+    @min_limit  = AvailabilityInterval.add_am_pm DEFAULT_AVAILABILITIES[0][0]
+    @max_limit  = AvailabilityInterval.add_am_pm DEFAULT_AVAILABILITIES[1][1]
   end
 
   def get
@@ -45,7 +45,7 @@ class AvailabilityInterval
     (start_min == 30 || start_min == 0) && (end_min == 30 || end_min == 0)
   end
 
-  def add_am_pm(time_string)
+  def self.add_am_pm(time_string)
     am_hours = [8, 9, 10, 11]
     pm_hours = [12, 1, 2, 3, 4, 5]
     new_time_string = ''

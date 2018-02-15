@@ -56,10 +56,10 @@ describe AvailabilityInterval do
       expect(availability_interval.send(:interval_30_min_increment?)).to be false
     end
   end
-  describe '#add_am_pm' do
+  describe '#self.add_am_pm' do
     it 'adds am and pm to times passed based on a normal business day of 8:30-5:00' do
-      expect(valid_interval.send(:add_am_pm, "9:00")).to eq "9:00am"
-      expect(valid_interval.send(:add_am_pm, "12:00")).to eq "12:00pm"
+      expect(AvailabilityInterval.add_am_pm "9:00").to eq "9:00am"
+      expect(AvailabilityInterval.add_am_pm "12:00").to eq "12:00pm"
     end
   end
 end
